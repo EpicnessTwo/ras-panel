@@ -35,6 +35,17 @@
             <input id="password_confirmation" type="password" name="password_confirmation" required
                    class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-purple-500">
         </div>
+        <div class="mb-6">
+            <label class="inline-flex items-center text-purple-300 text-sm">
+                <input type="checkbox" name="terms" class="form-checkbox text-purple-500">
+                <span class="ml-2">
+          I accept the <a href="{{ route('terms') }}" target="_blank" class="underline hover:text-purple-400">terms and conditions</a>
+        </span>
+            </label>
+            @error('terms')
+            <span class="text-red-500 text-xs italic">{{ $message }}</span>
+            @enderror
+        </div>
         <div class="flex items-center justify-between">
             <button type="submit"
                     class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

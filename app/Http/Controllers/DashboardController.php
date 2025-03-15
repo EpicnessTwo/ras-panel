@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\RasService;
+use EpicKitty\Ras\ApiException;
 use Illuminate\Support\Facades\Request;
 
 class DashboardController extends Controller
@@ -19,5 +21,16 @@ class DashboardController extends Controller
     public function profilePost(Request $request)
     {
         dd('Not implemented');
+    }
+
+    /**
+     * @throws ApiException
+     */
+    public function profileDelete(Request $request)
+    {
+        $ras = new RasService();
+        $ras->deleteUser(auth()->user()->name);
+
+        auth()->user()->delete();
     }
 }

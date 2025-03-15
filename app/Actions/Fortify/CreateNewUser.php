@@ -32,6 +32,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'terms' => ['required', 'accepted'],
         ])->validate();
 
         $ras = new RasService();

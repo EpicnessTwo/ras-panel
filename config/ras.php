@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'hostname' => env('RAS_HOSTNAME', 'localhost'),
+    'api_uri' => env('RAS_HOSTNAME', 'http://localhost:8080'),
+    'public_uri' => env('RAS_PUBLIC_URI', 'localhost'),
 ];

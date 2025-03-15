@@ -5,6 +5,7 @@ namespace App\Services;
 use EpicKitty\Ras\Api\DefaultApi;
 use EpicKitty\Ras\ApiException;
 use EpicKitty\Ras\Configuration;
+use EpicKitty\Ras\Model\UserDeleteRequest;
 use EpicKitty\Ras\Model\UserPasswordPutRequest;
 use EpicKitty\Ras\Model\UserPostRequest;
 use EpicKitty\Ras\Model\UserScreennameAccountGet200Response;
@@ -16,7 +17,7 @@ class RasService
     public function __construct()
     {
         $config = new Configuration();
-        $config->setHost(config('ras.hostname'));
+        $config->setHost(config('ras.api_uri'));
         $this->ras = new DefaultApi(
             config: $config
         );
@@ -62,5 +63,33 @@ class RasService
                 'password' => $password
             ])
         );
+    }
+
+    /**
+     * @throws ApiException
+     */
+    public function deleteUser(string $screenName): void
+    {
+        $this->ras->userDelete(
+            new UserDeleteRequest([
+                'screenName' => $screenName
+            ])
+        );
+    }
+
+    /**
+     * @throws ApiException
+     */
+    public function getPrivateChatRooms(): array
+    {
+        return $this->ras->chatRoomPrivateGet();
+    }
+
+    /**
+     * @throws ApiException
+     */
+    public function getPublicChatRooms(): array
+    {
+        return $this->ras->chatRoomPublicGet();
     }
 }
