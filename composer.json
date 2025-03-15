@@ -8,8 +8,16 @@
         "framework"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/EpicnessTwo/ras-php.git"
+        }
+    ],
     "require": {
         "php": "^8.2",
+        "epicnesstwo/ras-php": "dev-main",
+        "laravel/fortify": "^1.25",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
