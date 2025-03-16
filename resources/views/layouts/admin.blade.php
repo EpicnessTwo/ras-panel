@@ -54,6 +54,9 @@
     <!-- Main Content Area -->
     <main class="flex-1 p-6">
         @yield('content')
+        <footer class="text-center mt-8">
+            <p class="text-white text-sm">{{ config('app.name') }} &bull; Made with <span class="text-red-600">♥</span> by <a target="_blank" href="https://github.com/EpicnessTwo">EpicKitty</a></p>
+        </footer>
     </main>
 </div>
 @yield('scripts')

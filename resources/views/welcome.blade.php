@@ -6,7 +6,7 @@
     <title>Ras Panel - Welcome</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white min-h-screen flex items-center justify-center">
+<body class="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
 <div class="text-center px-24 py-18 bg-gray-800 bg-opacity-75 rounded-lg shadow-lg">
     <h1 class="text-5xl font-bold mb-4 text-purple-500">Ras Panel</h1>
     <p class="text-xl mb-4 text-purple-300">A web panel for Retro AIM Server</p>
@@ -27,5 +27,8 @@
         @endauth
     </div>
 </div>
+<footer class="text-center mt-8">
+    <p class="text-white text-sm">{{ config('app.name') }} &bull; Made with <span class="text-red-600">♥</span> by <a target="_blank" href="https://github.com/EpicnessTwo">EpicKitty</a></p>
+</footer>
 </body>
 </html>
