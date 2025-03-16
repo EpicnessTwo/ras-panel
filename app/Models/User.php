@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Accounts\Aim;
+use App\Models\Accounts\Icq;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -44,5 +47,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function aim(): HasOne
+    {
+        return $this->hasOne(Aim::class);
+    }
+
+    public function icq(): HasOne
+    {
+        return $this->hasOne(Icq::class);
+    }
+
+    public function getHasAimAttribute(): bool
+    {
+        return $this->aim()->exists();
+    }
+
+    public function getHasIcqAttribute(): bool
+    {
+        return $this->icq()->exists();
     }
 }

@@ -15,6 +15,15 @@ Route::get('/terms', function () {
 
 Route::middleware(['auth', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'home'])->name('home');
+
+    Route::post('/aim', [DashboardController::class, 'createAim'])->name('aim.store');
+    Route::put('/aim', [DashboardController::class, 'updateAim'])->name('aim.update');
+    Route::delete('/aim', [DashboardController::class, 'deleteAim'])->name('aim.destroy');
+
+    Route::post('/icq', [DashboardController::class, 'createIcq'])->name('icq.store');
+    Route::put('/icq', [DashboardController::class, 'updateIcq'])->name('icq.update');
+    Route::delete('/icq', [DashboardController::class, 'deleteIcq'])->name('icq.destroy');
+
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
     Route::put('/profile', [DashboardController::class, 'profilePost'])->name('profile.update');
     Route::delete('/profile', [DashboardController::class, 'profileDelete'])->name('profile.destroy');
