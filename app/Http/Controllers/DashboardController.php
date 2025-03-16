@@ -111,7 +111,7 @@ class DashboardController extends Controller
         // Generate a random ICQ number that doesn't already exist
         $icq = rand(100000, 999999);
         while (Icq::whereName($icq)->exists()) {
-            $icq = rand(100000000, 999999999);
+            $icq = rand(100000, 999999);
         }
 
         $ras = new RasService();
