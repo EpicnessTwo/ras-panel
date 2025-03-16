@@ -51,7 +51,14 @@ class AdminController extends Controller
      */
     public function usersDestroy(User $user)
     {
-        $this->ras->deleteUser($user->name);
+        if ($user->has_aim) {
+            $this->ras->deleteUser($user->aim->name);
+        }
+
+        if ($user->has_icq) {
+            $this->ras->deleteUser($user->icq->name);
+        }
+
         $user->delete();
         return redirect()->route('dashboard.admin.users.index');
     }
