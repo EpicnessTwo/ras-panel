@@ -43,7 +43,7 @@ class AdminController extends Controller
     public function usersUpdate(User $user)
     {
         $user->update(request()->all());
-        return redirect()->route('dashboard.admin.users.show', $user);
+        return redirect()->route('dashboard.admin.users.edit', $user);
     }
 
     /**
