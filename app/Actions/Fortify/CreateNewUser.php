@@ -35,9 +35,6 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => ['required', 'accepted'],
         ])->validate();
 
-        $ras = new RasService();
-        $ras->addUser($input['name'], $input['password']);
-
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],

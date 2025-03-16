@@ -33,4 +33,10 @@ class DashboardController extends Controller
 
         auth()->user()->delete();
     }
+
+    public function profileSessions()
+    {
+        $ras = new RasService(true);
+        $sessions = $ras->getSessions();
+    }
 }

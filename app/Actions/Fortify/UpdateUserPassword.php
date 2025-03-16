@@ -31,8 +31,5 @@ class UpdateUserPassword implements UpdatesUserPasswords
         $user->forceFill([
             'password' => Hash::make($input['password']),
         ])->save();
-
-        $ras = new RasService();
-        $ras->updateUserPassword($user->name, $input['password']);
     }
 }

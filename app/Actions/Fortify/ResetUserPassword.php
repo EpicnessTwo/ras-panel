@@ -29,8 +29,5 @@ class ResetUserPassword implements ResetsUserPasswords
             'password' => Hash::make($input['password']),
         ])->save();
 
-        $ras = new RasService();
-        $ras->updateUserPassword($user->name, $input['password']);
-
     }
 }
