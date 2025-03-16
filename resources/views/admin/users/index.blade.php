@@ -10,7 +10,9 @@
                 <thead>
                 <tr>
                     <th class="py-3 px-4 uppercase text-sm text-left text-purple-300">ID</th>
-                    <th class="py-3 px-4 uppercase text-sm text-left text-purple-300">Name</th>
+                    <th class="py-3 px-4 uppercase text-sm text-left text-purple-300">Panel Name</th>
+                    <th class="py-3 px-4 uppercase text-sm text-left text-purple-300">AIM Username</th>
+                    <th class="py-3 px-4 uppercase text-sm text-left text-purple-300">ICQ Username</th>
                     <th class="py-3 px-4 uppercase text-sm text-right text-purple-300">Actions</th>
                 </tr>
                 </thead>
@@ -19,6 +21,8 @@
                     <tr class="border-b border-gray-600">
                         <td class="py-3 px-4">{{ $user->id }}</td>
                         <td class="py-3 px-4">{{ $user->name }}</td>
+                        <td class="py-3 px-4">{{ $user->aim?->name }}</td>
+                        <td class="py-3 px-4">{{ $user->icq?->name }}</td>
                         <td class="py-3 px-4 text-right">
                             <a href="{{ route('dashboard.admin.users.edit', $user->id) }}" class="text-purple-400 hover:text-purple-300 mr-2">Edit</a>
                             @if ($user->id !== auth()->id() && !$user->is_admin)

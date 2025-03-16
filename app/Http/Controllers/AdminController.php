@@ -22,7 +22,7 @@ class AdminController extends Controller
     public function usersIndex()
     {
         return view('admin.users.index', [
-            'users' => User::paginate(25)
+            'users' => User::with('aim', 'icq')->paginate(25)
         ]);
     }
 
